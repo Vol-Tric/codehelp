@@ -1,0 +1,25 @@
+program 1 : factorial
+program 2 : head recursion VS tail recursion
+program 3 : fibonacci
+program 4 : climbing stairs
+program 5 : Say digit
+program 6 : check if given array is sorted using recursion
+program 7 : sum of elements of array using recursion
+program 8 : linear search using recursion
+program 9 : binary search using recursion
+program 10 : peak mountain using recursion
+program 11 : pivot element using recursion
+program 12 : reverse a string using recursion
+program 13 : check palindrome of string
+program 14 : count power
+program 15 : bubble sort using recursion
+program 16 : selection sort
+program 17 : merge sort using recursion
+program 18 : count inversions
+program 19 : quick sort using recursion
+program 20 : subsets, output should be the power set of the entered array
+program 21 : subsequence of string
+program 22 : old phone keypad mapping
+program 23 : permutation
+program 24 : find path
+program 25 : Tower of Hanoi

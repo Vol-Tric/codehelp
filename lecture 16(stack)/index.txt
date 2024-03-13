@@ -1,0 +1,16 @@
+program 1 : basic stack operations using STL
+program 2 : stack implementation using class
+program 3 : reverse a string using stack
+program 4 : remove middle element of stack
+program 5 : valid parenthesis
+program 6 : insert at bottom of the stack
+program 7 : reverse a stack using recursion
+program 8 : sort elements of stack using recursion
+program 9 : check for reduntant brackets
+program 10 : bracket revarsal
+program 11 : next smaller element
+program 12 : area under a histogram
+program 13 : celebrity problem
+program 14 : max rectangle area in binary matrix
+program 15 : N stack in an array
+program 16 : design a special stack sich that getmin() works in O(1) TC and O(1) SC

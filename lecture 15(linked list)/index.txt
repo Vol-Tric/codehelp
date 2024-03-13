@@ -1,0 +1,17 @@
+program 1 : singly linked list
+program 2 : doubly linked list
+program 3 : circular linked list
+program 4 : reverse a linked list using both iterative and recursive method
+program 5 : middle of linked list
+program 6 : reverse linked list in k groups of elements
+program 7 : detect if the given list is circular linked list or not
+program 8 : detect a loop in a give linked list
+program 9 : remove duplicate from linked list sorted and unsorted
+program 10 : divide a circular linked list into 2 equal parts
+program 11 : split linked list in parts
+program 12 : sort LL with 0,1,2 only as elements
+program 13 : merge 2 sorted LL
+program 14 : check whether the LL is palindrome or not
+program 15 : add 2 numbers represented by a linked list
+program 16 : merge sort on linked list
+program 17 : merge k sorted linked list
