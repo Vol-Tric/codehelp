@@ -15,3 +15,4 @@ program 14 : check whether the LL is palindrome or not
 program 15 : add 2 numbers represented by a linked list
 program 16 : merge sort on linked list
 program 17 : merge k sorted linked list
+program 18 : remove nth node from end of list
