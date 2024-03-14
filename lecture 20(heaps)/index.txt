@@ -1,0 +1,12 @@
+program 1 : heap initialization
+program 2 : heapify
+program 3 : heap sort
+program 4 : heap using priority queue
+program 5 :  kth smallest element
+program 6 : check if a tree is a heap tree
+program 7 : Function to return the minimum cost of connecting the ropes.
+program 8 : kth largest sum subarray
+program 9 : merge K sorted arrays
+program 10 : merge k sorted LL
+program 11 : smallest range in k sorted list
+program 12 : median in a stream

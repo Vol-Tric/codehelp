@@ -1,0 +1,17 @@
+program 1 : creation of binary tree
+program 2 : count leaf nodes
+program 3 : height of binary tree
+program 4 : diameter of a binary tree
+program 5 : check for Balanced tree
+program 6 : check identical trees
+program 7 : check sum tree
+program 8 : zig-zag traversal
+program 9 : boundry traversal
+program 10 : vertical order traversal
+program 11 : sum of longest blood line
+program 12 : LCA, lowest common ancestor
+program 13 : construct a tree from inorder and preorder
+program 14: construct a tree from inorder and postorder
+program 15 : burning tree
+program 16 : morris traversal
+program 17 : flatten a binary tree into linked list without using extra space

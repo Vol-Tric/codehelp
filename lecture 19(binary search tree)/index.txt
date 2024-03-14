@@ -1,0 +1,14 @@
+program 1 : creation of binary search tree
+program 2 : search in binary search tree
+program 3 : min and max value in a BST
+program 4 : deletion in BST
+program 5 : validate a BST
+program 6 : find kth smallest element in a BST
+program 7 : inorder predecessor ans successor
+program 8 : LCA in a BST
+program 9 : 2 sum in a BST
+program 10 : flatten a BST into a Sorted LL
+program 11 : normal to balanced BST
+program 12 : create BST from preorder
+program 13 : merge 2 BST
+program 14 : find a BST out of a binary tree

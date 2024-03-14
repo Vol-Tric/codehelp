@@ -1,4 +1,4 @@
-// !st negative integer in every window of size K
+// 1st negative integer in every window of size K
 #include<bits/stdc++.h>
 using namespace std;
 

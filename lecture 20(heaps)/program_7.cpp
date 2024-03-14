@@ -1,4 +1,4 @@
-//{ Driver Code Starts
+//return the minimum cost of connecting the ropes
 #include <bits/stdc++.h>
 using namespace std;
 

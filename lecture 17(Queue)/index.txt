@@ -1,0 +1,15 @@
+program 1 : create queue using STL
+program 2 : implementation of queue using arrays
+program 3 : circular queue using array;
+program 4 : doubly ended queue using stl
+program 5 : doubly ended queue using array
+program 6 : queue revarsal
+program 7 : 1st negative integer in every window of size K
+program 8 : reverse first K elements of queue
+program 9 : First non-repeating character in a stream
+program 10 : circular tour
+program 11 : interleaf queue
+program 12 : K queues in an array
+program 13 : sum of maximum and minimum of subarray of size k
+program 14 : implement queue using stack
+program 15: implement stack using queue
