@@ -1,5 +1,5 @@
-// kahn's algorithm
-// topological sort using BFS
+// cycle detection in Directed Graph using BFS
+// using kahn's algorithm
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -34,7 +34,7 @@ class Graph{
 
     
 
-    vector<int> topologicalSort(int vertex){
+    bool cycleDetection(int vertex){
         // indegree of every node
         unordered_map<int , int>inDegree;
         for(auto i : adj_list){
@@ -45,13 +45,14 @@ class Graph{
 
         // queue
         queue<int>q;
-        for(int i=0 ; i<vertex ; i++){
+        for(int i=1 ; i<=vertex ; i++){
             if(inDegree[i] == 0){
                 q.push(i);
             }
         }
 
         // do bfs
+        int count = 0;
         vector<int>ans;
 
         while(!q.empty()){
@@ -60,6 +61,7 @@ class Graph{
 
             // store ans
             ans.push_back(frontNode);
+            count++;
 
             // check neighbour
             for(auto neighbour : adj_list[frontNode]){
@@ -69,7 +71,9 @@ class Graph{
                 }
             }
         }
-        return ans;
+        
+        // false for cycle present , true for cycle not present;
+        return (count == vertex) ? false : true;
     }
 
    
@@ -77,27 +81,27 @@ class Graph{
 
 int main(){
     // number of nodes
-    int vertex = 6;
+    int vertex = 8;
 
     // number of edges
-    int edge = 7;
+    int edge = 9;
 
     Graph g;
     g.addEdge_list(1,2,1);
-    g.addEdge_list(1,3,1);
-    g.addEdge_list(3,4,1);
+    g.addEdge_list(2,3,1);
+    g.addEdge_list(3,7,1);
+    g.addEdge_list(3,8,1);
+    g.addEdge_list(8,7,1);
     g.addEdge_list(2,4,1);
     g.addEdge_list(4,5,1);
     g.addEdge_list(5,6,1);
-    g.addEdge_list(4,6,1);
+    g.addEdge_list(6,4,1);
 
     g.printEdge_list();
 
-    vector<int>ans = g.topologicalSort(vertex);
-    cout<<"Topological sort: "<<endl;
-    for(auto i : ans){
-        cout<<i<<" ";
-    }
+    bool ans = g.cycleDetection(vertex);
+    cout<<endl;
+    (ans) ? cout<<"cycle present " : cout<<"cycle not present ";
     
 
 
