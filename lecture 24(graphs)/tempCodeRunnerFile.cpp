@@ -1,1 +1,1 @@
-
+low[node] = min(low[node] , low[neighbour]);
