@@ -15,3 +15,6 @@ program 14 : bridge in a graph
 program 15 : articulation point , tarjan's algorithm
 program 16 : Kasaraju's algorithm
 program 17 : bellman ford algorithm
+program 18 : Find Union, Intersection and ring-sum of 2 graphs
+program 19 : floyd warshall
+program 20 : ford fulkerson for network flow
