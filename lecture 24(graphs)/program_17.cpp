@@ -23,21 +23,41 @@ class Graph{
     }
 
     
-    vector<int> bellmanFord(int vertex , int source ){
-        vector<int>dist(vertex , 10000);
-        
-        for(int i = 0 ; i<vertex;i++){
-            for(auto it : adj_list[i]){
-                int u = i;
-                int v = it.first;
-                int w = it.second;
+    vector<int> bellmanFord(int vertex, int source) {
+        vector<int> dist(vertex, INT_MAX); // Initialize distances with infinity
+        dist[source] = 0; // Distance to source vertex is 0
 
-                if((dist[u] + w) < dist[v]){
-                    dist[v] = dist[u] + w;
+        // Relax all edges |V| - 1 times
+        for (int i = 0; i < vertex - 1; i++) {
+            for (auto& node : adj_list) {
+                int u = node.first; // source vertex
+                for (auto& edge : node.second) {
+                    int v = edge.first; // destination vertex
+                    int weight = edge.second; // weight of the edge
+                    // Relaxation step
+                    if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+                        dist[v] = dist[u] + weight;
+                    }
                 }
             }
-            
         }
+
+        // Check for negative weight cycles
+        for (auto& node : adj_list) {
+            int u = node.first;
+            for (auto& edge : node.second) {
+                int v = edge.first;
+                int weight = edge.second;
+                if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+                    // Negative weight cycle found
+                    // This indicates that there's no shortest path
+                    // as the graph contains a negative weight cycle
+                    cout << "Negative weight cycle found!" << endl;
+                    return {}; // Return an empty vector
+                }
+            }
+        }
+
         return dist;
     }
 };
