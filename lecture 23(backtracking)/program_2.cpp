@@ -86,50 +86,58 @@ vector<vector<int>> nQueens(int n)
 	
 }
 
-vector<vector<string>> solveNQueens(int n) {
-    vector<vector<string>>ans(2, vector<string>(n*n,"."));   
+// vector<vector<string>> solveNQueens(int n) {
+//     vector<vector<string>>ans(2, vector<string>(n*n,"."));   
 
-    vector<vector<int>>ans1 = nQueens(n);
-    for(auto i:ans1){
-        for(auto j: i){
-            if(j == 1){
-                // ans[i][j] = "Q"
-            }
-        }
-    }
+//     vector<vector<int>>ans1 = nQueens(n);
+//     for(auto i:ans1){
+//         for(auto j: i){
+//             if(j == 1){
+//                 // ans[i][j] = "Q"
+//             }
+//         }
+//     }
 
-    for(int i=0;i<ans1.size();i++){
-        for(int j=0;j<ans1[i].size();j++){
-            if(ans1[i][j] == 1){
-                ans[i][j] = "Q";
-            }
-        }
-    }
+//     for(int i=0;i<ans1.size();i++){
+//         for(int j=0;j<ans1[i].size();j++){
+//             if(ans1[i][j] == 1){
+//                 ans[i][j] = "Q";
+//             }
+//         }
+//     }
 
-    return ans;
-}
+//     return ans;
+// }
 
 int main(){
-    int n = 4;
+    int n = 6;
     // for int
     vector<vector<int>>ans = nQueens(n);
 
     for(auto i:ans){
+        int count = 1;
         for(auto j:i){
             cout<<j<<" ";
+            if(count%n == 0){
+                if(count != 0){
+                    cout<<endl;
+                }
+                
+            }
+            count++;
         }
         cout<<endl;
     }
     cout<<endl<<endl;
 
 
-    // for string
-    vector<vector<string>>ans1 = solveNQueens(n);
-    for(auto i:ans1){
-        for(auto j:i){
-            cout<<j<<" ";
-        }
-        cout<<endl;
-    }
+    // // for string
+    // vector<vector<string>>ans1 = solveNQueens(n);
+    // for(auto i:ans1){
+    //     for(auto j:i){
+    //         cout<<j<<" ";
+    //     }
+    //     cout<<endl;
+    // }
     return 0;
 }

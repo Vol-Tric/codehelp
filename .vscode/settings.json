@@ -15,6 +15,7 @@
         "latch": "cpp",
         "limits": "cpp",
         "semaphore": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "ratio": "cpp"
     }
 }
