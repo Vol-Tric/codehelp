@@ -16,6 +16,13 @@
         "limits": "cpp",
         "semaphore": "cpp",
         "valarray": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "string": "cpp",
+        "unordered_set": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "regex": "cpp",
+        "bitset": "cpp",
+        "utility": "cpp"
     }
 }
