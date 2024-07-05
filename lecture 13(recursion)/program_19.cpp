@@ -10,25 +10,25 @@ void swap(char *a, char *b){
 
 int partition(int arr[],int start, int end){
 
-    int pivot=arr[start];
-    int count=0;
-    for(int i=start+1;i<end;i++){
-        if(arr[i]<=pivot){
+    int pivot = arr[start];
+    int count = 0;
+    for(int i=start+1 ; i<end ; i++){
+        if(arr[i] <= pivot){
             count++;
         }
     }
-    int pivot_index=start+count;
-    swap(arr[pivot_index],arr[start]);
-    int i=start;
-    int j=end;
-    while(i<pivot_index && j>pivot_index){
-        while(arr[i]<=pivot){
+    int pivot_index = start + count;
+    swap(arr[pivot_index] , arr[start]);
+    int i = start;
+    int j = end;
+    while(i < pivot_index && j > pivot_index){
+        while(arr[i] <= pivot){
             i++;
         }
-        while(arr[j]>pivot){
+        while(arr[j] > pivot){
             j--;
         }
-        if(i<pivot_index && j>pivot_index){
+        if(i < pivot_index && j > pivot_index){
             swap(arr[i],arr[j]);
             i++;
             j--;
