@@ -14,16 +14,16 @@ Program 13 : maximum square sub matrix
 Program 14 : min score triangulation of polygon
 Program 15 : minimum sideways jumps
 Program 16 : reducing dishes
-Program 17 :  
-Program 18 :  
-Program 19 :
-Program 20 :  
-Program 21 :  
-Program 22 :  
-Program 23 :
-Program 24 :  
-Program 25 :  
-Program 26 :  
+Program 17 : longest Increasing subsequence
+Program 18 : maximum height by stacking cuboid 
+Program 19 : pizza with 3n slices
+Program 20 : number of dice rolls with target sum
+Program 21 : partition equal subset sum
+Program 22 : RTDS interview question
+Program 23 : minimum swap to make arrays stricting increasing
+Program 24 : longest arithmetic Progression
+Program 25 : longest AP with give difference "d"
+Program 26 : longest AP subsequence
 Program 27 :
 Program 28 :  
 Program 29 :  

@@ -23,3 +23,4 @@ program 22 : old phone keypad mapping
 program 23 : permutation
 program 24 : find path
 program 25 : Tower of Hanoi
+program 25 : predict winner on circular game ( josephus algorithm )
