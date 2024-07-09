@@ -24,8 +24,8 @@ Program 23 : minimum swap to make arrays stricting increasing
 Program 24 : longest arithmetic Progression
 Program 25 : longest AP with give difference "d"
 Program 26 : longest AP subsequence
-Program 27 :
-Program 28 :  
+Program 27 : unique BST (structurally)
+Program 28 : guess the number higher or lower 
 Program 29 :  
 Program 30 :  
 Program 31 :

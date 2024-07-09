@@ -132,15 +132,39 @@ class Solution{
         return solveOptimal(n , arr);
     }
 
+    // another approach using DP with hashing
+    int lengthOfLIS(vector<int>& nums){
+        int n = nums.size();
+        unordered_map<int , int>dp;
+        int maxi = 1;
+
+        for(int i=0 ; i<n ; i++){
+            int temp = 0;
+            for(auto j : dp){
+                if(j.first < nums[i]){
+                    temp = max(temp , j.second);
+                }
+            }
+            cout<<"temp of "<<nums[i]<<" is : "<<temp<<endl;
+            dp[nums[i]] = 1+temp;
+            maxi = max(dp[nums[i]] , maxi);
+            cout<<"maxi till "<<nums[i]<<" is : "<<maxi<<endl;
+        }
+        return maxi;
+
+    }
+
     
 };
 
 int main(){
-    vector<int>arr = {5,8,3,7,9,1};
-    int n = arr.size();
+    // vector<int>nums = {5,8,3,7,9,1};
+    vector<int>nums = {10,9,2,5,3,7,101,18};
+    int n = nums.size();
     // ans should be 3
     Solution obj;
-    int ans = obj.longestSubsequence(n , arr);
+    // int ans = obj.longestSubsequence(n , nums);
+    int ans = obj.lengthOfLIS(nums);
     cout<<"answer is : "<<ans<<endl;
     return 0;
 
