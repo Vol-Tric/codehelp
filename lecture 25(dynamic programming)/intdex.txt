@@ -26,6 +26,9 @@ Program 25 : longest AP with give difference "d"
 Program 26 : longest AP subsequence
 Program 27 : unique BST (structurally)
 Program 28 : guess the number higher or lower 
-Program 29 :  
-Program 30 :  
-Program 31 :
+Program 29 : minimum cost tree from leaf values
+Program 30 : buy and sell stock (part 1) , leetcode 121
+Program 31 : buy and sell stock (part 2) , leetcode 122
+Program 32 : buy and sell stock (part 3) , leetcode 123
+Program 33 : buy and sell stock (part 4) , leetcode 188
+Program 34 : buy and sell stock (part 5) , leetcode 714
