@@ -23,6 +23,7 @@
         "ranges": "cpp",
         "regex": "cpp",
         "bitset": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "ostream": "cpp"
     }
 }

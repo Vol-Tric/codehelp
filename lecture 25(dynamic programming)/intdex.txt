@@ -32,3 +32,7 @@ Program 31 : buy and sell stock (part 2) , leetcode 122
 Program 32 : buy and sell stock (part 3) , leetcode 123
 Program 33 : buy and sell stock (part 4) , leetcode 188
 Program 34 : buy and sell stock (part 5) , leetcode 714
+Program 35 : longest common subsequence , leetcode 1143
+Program 36 : longest palindrome subsequence , leetcode 516
+Program 37 : edit distance , leetcode 72
+Program 38 : wildcard pattern matching , leetcode 44
