@@ -1,0 +1,6 @@
+Program 1 : N meetings in one room
+Program 2 : check if possible to survive on an Island
+Program 3 : minimum cost of ropes (using min heap)
+Program 4 : huffmann coding
+Program 5 : fractional knapsack
+Program 6 : job sequencing
