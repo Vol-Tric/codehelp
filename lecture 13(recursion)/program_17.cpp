@@ -1,89 +1,85 @@
 // merge sort using recursion
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void swap(char *a, char *b){
-    char *temp=a;
-    a=b;
-    b=temp;
-}
+class Solution {
+private:
+    void merge(vector<int>& nums, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
 
-void merge(int *arr,int start, int end){
-    int mid=start+(end-start)/2;
+        vector<int> leftArray(n1);
+        vector<int> rightArray(n2);
 
-    int len1=mid-start+1;
-    int len2=end-mid;
-
-    int *first=new int[len1];
-    int *second=new int[len2];
-
-    int mainArrayIndex=start;
-
-    for(int i=0;i<len1;i++){
-        first[i]=arr[mainArrayIndex++];
-    }
-
-    mainArrayIndex=mid+1;
-    for(int i=0;i<len2;i++){
-        second[i]= arr[mainArrayIndex++];
-    }
-
-    // merge 2 arrays
-    int index1=0;
-    int index2=0;
-    mainArrayIndex=start;
-
-    while(index1<len1 && index2<len2){
-        if(first[index1]<second[index2]){
-            arr[mainArrayIndex++]=first[index1++];
+        for (int i = 0; i < n1; i++) {
+            leftArray[i] = nums[left + i];
         }
-        else{
-            arr[mainArrayIndex++]=second[index2++];
+        for (int j = 0; j < n2; j++) {
+            rightArray[j] = nums[mid + 1 + j];
+        }
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (leftArray[i] <= rightArray[j]) {
+                nums[k] = leftArray[i];
+                i++;
+            } else {
+                nums[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            nums[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            nums[k] = rightArray[j];
+            j++;
+            k++;
         }
     }
 
-    while(index1<len1){
-        arr[mainArrayIndex++]=first[index1++];
+    void mergeSort(vector<int>& nums, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        int mid = left + (right - left) / 2;
+
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        merge(nums, left, mid, right);
     }
 
-    while(index2<len2){
-        arr[mainArrayIndex++]=second[index2++];
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        mergeSort(nums, 0, nums.size() - 1);
+        return nums;
     }
-
-
-    
-}
-
-void merge_sort(int arr[], int start, int end){
-    // base case
-    if(start>=end){
-        return ;
-    }
-    
-    int mid=start+(end-start)/2;
-    // left side
-    merge_sort(arr,start,mid);
-    // right side
-    merge_sort(arr,mid+1,end);
-    // 2 way merge
-    merge(arr,start,end);
-}
-
-
+};
 
 
 int main(){
-    int arr[12]={2,3,5,1,6,4,7,4,8,6,9,3};
-    int len=sizeof(arr)/sizeof(arr[0]);
+    vector<int>arr = {2,3,5,1,6,4,7,4,8,6,9,3};
+    
     cout<<"before sorting"<<endl;
-    for(int i=0;i<len;i++){
-        cout<<arr[i]<<" ";
+    for(auto i : arr){
+        cout<<i<<" ";
     }
     cout<<endl;
-    merge_sort(arr,0,len-1);
+
+    Solution obj;
+
+    obj.sortArray(arr);
+
     cout<<"after sorting"<<endl;
-    for(int i=0;i<len;i++){
-        cout<<arr[i]<<" ";
+    for(auto i : arr){
+        cout<<i<<" ";
     }
     return 0;
 
