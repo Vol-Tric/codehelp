@@ -1,0 +1,10 @@
+Program 1 : rat in a maze problem
+Program 2 : n queens problem
+Program 3 : sudoku solver
+Program 4 : solve sudoku char
+Program 5 : valid sudoku
+Program 6 : sub sets XOR sum
+Program 7 : subsets
+Program 8 : word search (leetcode 79)
+
+
