@@ -1,6 +1,74 @@
 // cycle detection in directed graph using DFS
+// if the neighbour of the node is already visited , then the cycle exist
 #include<bits/stdc++.h>
 using namespace std;
+
+// class Graph{
+
+//     public:
+//     // adjency list using list
+//     unordered_map<int , list<int>> adj_list;
+
+//     void addEdge_list(int u , int v , bool direction){
+//         // direction is to check for directed or undierected graph
+
+//         // create an adge
+//         adj_list[u].push_back(v);
+
+//         // check direction
+//         if(direction == 0){
+//             // if undirected , create an edge from both the sides
+//             adj_list[v].push_back(u);
+//         }
+//     }
+
+//     void printEdge_list(){
+//         for(auto i: adj_list){
+//             cout<<i.first<<"  ->";
+//             for(auto j : i.second){
+//                 cout<<j<<"->";
+//             }
+//             cout<<endl;
+//         }
+//     }
+
+//     bool isCyclicDirected(unordered_map<int , list<int>> adj_list , unordered_map<bool , int>&visited , unordered_map<bool , int>&dfsVisited, int node){
+//         visited[node] = true;
+//         dfsVisited[node] = true;
+
+//         for(auto neighbour : adj_list[node]){
+//             if(!visited[neighbour]){
+//                 bool ans = isCyclicDirected(adj_list , visited , dfsVisited , neighbour);
+//                 if(ans){
+//                     return true;
+//                 }
+//             }
+//             else if(dfsVisited[neighbour]){
+//                 return true;
+//             }
+//         }
+//         dfsVisited[node] = false;
+//         return false;
+//     }
+//     bool cycleDetection(int vertex){
+//         unordered_map<bool , int>visited;
+//         unordered_map<bool , int>dfsVisited;
+
+//         for(int i=1 ; i<=vertex ; i++){
+//             if(!visited[i]){
+//                 bool ans = isCyclicDirected(adj_list , visited , dfsVisited , i);
+//                 if(ans){
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+
+   
+// };
+
+
 
 class Graph{
 
@@ -31,31 +99,34 @@ class Graph{
         }
     }
 
-    bool isCyclicDirected(unordered_map<int , list<int>> adj_list , unordered_map<bool , int>&visited , unordered_map<bool , int>&dfsVisited, int node){
+    bool isCyclicDirected(map<int , bool>&visited , map<int , bool>& dfsVisited , int node){
         visited[node] = true;
         dfsVisited[node] = true;
 
-        for(auto neighbour : adj_list[node]){
-            if(!visited[neighbour]){
-                bool ans = isCyclicDirected(adj_list , visited , dfsVisited , neighbour);
-                if(ans){
+        for(auto neigh : adj_list[node]){
+            if(!visited[neigh]){
+                bool temp = isCyclicDirected(visited , dfsVisited , neigh);
+                if(temp){
                     return true;
                 }
             }
-            else if(dfsVisited[neighbour]){
+
+            else if(dfsVisited[neigh]){
                 return true;
             }
         }
+
         dfsVisited[node] = false;
         return false;
     }
+
     bool cycleDetection(int vertex){
-        unordered_map<bool , int>visited;
-        unordered_map<bool , int>dfsVisited;
+        map<int , bool>visited;
+        map<int , bool>dfsVisited;
 
         for(int i=1 ; i<=vertex ; i++){
             if(!visited[i]){
-                bool ans = isCyclicDirected(adj_list , visited , dfsVisited , i);
+                bool ans = isCyclicDirected(visited , dfsVisited , i);
                 if(ans){
                     return true;
                 }
@@ -66,6 +137,9 @@ class Graph{
 
    
 };
+
+
+
 
 int main(){
     // number of nodes

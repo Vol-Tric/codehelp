@@ -62,6 +62,71 @@ class Graph{
    
 };
 
+
+// class Graph{
+
+//     public:
+//     // adjency list using list
+//     unordered_map<int , list<int>> adj_list;
+
+//     void addEdge_list(int u , int v , bool direction){
+//         // direction is to check for directed or undierected graph
+
+//         // create an adge
+//         adj_list[u].push_back(v);
+
+//         // check direction
+//         if(direction == 0){
+//             // if undirected , create an edge from both the sides
+//             adj_list[v].push_back(u);
+//         }
+//     }
+
+//     void printEdge_list(){
+//         for(auto i: adj_list){
+//             cout<<i.first<<"  ->";
+//             for(auto j : i.second){
+//                 cout<<j<<"->";
+//             }
+//             cout<<endl;
+//         }
+//     }
+
+//     void topoSort(map<int , bool>&visited , int node , stack<int>&s){
+//         visited[node] = true;
+
+//         for(auto neigh : adj_list[node]){
+//             if(!visited[neigh]){
+//                 topoSort(visited , neigh , s);
+//             }
+//         }
+
+//         s.push(node);
+//         return;
+//     }
+
+
+//     vector<int>topologicalSort(int vertex){
+//         map<int , bool>visited;
+//         stack<int>s;
+//         for(int i=1 ; i<=vertex ; i++){
+//             if(!visited[i]){
+//                 topoSort(visited , i , s);
+//             }
+//         }
+
+//         vector<int>ans;
+//         while(!s.empty()){
+//             ans.push_back(s.top());
+//             s.pop();
+//         }
+//         return ans;
+//     }
+
+   
+// };
+
+
 int main(){
     // number of nodes
     int vertex = 6;

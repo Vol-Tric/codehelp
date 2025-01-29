@@ -1,4 +1,6 @@
 // cycle detection in undirected graph
+
+// while traversing the neighbour of the nodes , if the neighbour is visited but its parent is not the node itself , then the cycle exist in the graph.
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -47,7 +49,7 @@ class Graph{
             q.pop();
 
             for(auto neighbour : adj_list[frontNode]){
-                if(visited[neighbour] == true && neighbour != parent[frontNode]){
+                if(visited[neighbour] == true && parent[neighbour] != frontNode){
                     // cycle exists
                     return true;
                 }
@@ -98,6 +100,73 @@ class Graph{
    
 };
 
+
+// class Graph{
+
+//     public:
+//     // adjency list using list
+//     unordered_map<int , list<int>> adj_list;
+
+//     void addEdge_list(int u , int v , bool direction){
+//         // direction is to check for directed or undierected graph
+
+//         // create an adge
+//         adj_list[u].push_back(v);
+
+//         // check direction
+//         if(direction == 0){
+//             // if undirected , create an edge from both the sides
+//             adj_list[v].push_back(u);
+//         }
+//     }
+
+//     void printEdge_list(){
+//         for(auto i: adj_list){
+//             cout<<i.first<<"  ->";
+//             for(auto j : i.second){
+//                 cout<<j<<"->";
+//             }
+//             cout<<endl;
+//         }
+//     }
+
+//     bool isCyclicDFS(map<int , bool>&visited , int node , int parent){
+//         visited[node] = true;
+
+//         for(auto neigh : adj_list[node]){
+//             if(!visited[neigh]){
+//                 bool temp = isCyclicDFS(visited , neigh , node);
+//                 if(temp){
+//                     return true;
+//                 }
+//             }
+
+//             else if(parent != node){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+
+//     void cycleDetection(int vertex){
+//         map<int , bool>visited;
+
+//         for(int i=1 ; i<=vertex ; i++){
+//             if(!visited[i]){
+//                 bool temp = isCyclicDFS(visited , i , -1);
+
+//                 if(temp){
+//                     cout<<"cycle exits";
+//                     return;
+//                 }
+//             }
+//         }
+
+//         cout<<"cycle doesnt exits";
+//     }
+
+   
+// };
 
 int main(){
     int vertex = 5;

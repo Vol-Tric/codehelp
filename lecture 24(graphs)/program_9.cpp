@@ -83,6 +83,59 @@ class Graph{
 
         return ans;
     }
+
+    // void path(int node , map<int , int>&parent , map<int , bool>&visited){
+    //     visited[node] = true;
+    //     parent[node] = -1;
+
+    //     queue<int>q;
+    //     q.push(node);
+    //     while(!q.empty()){
+    //         int front = q.front();
+    //         q.pop();
+
+    //         for(auto neigh : adj_list[front]){
+    //             if(!visited[neigh]){
+    //                 q.push(neigh);
+    //                 visited[neigh] = true;
+    //                 parent[neigh] = front;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // vector<int>shortestPath(int edges , int vertex , int startNode , int endNode){
+    //     map<int , bool>visited;
+    //     map<int , int>parent;
+
+    //     for(int i=1 ; i<=vertex ; i++){
+    //         if(!visited[i]){
+    //             path(i , parent , visited);
+    //         }
+    //     }
+
+    //     vector<int>ans;
+
+    //     int temp = endNode;
+
+    //     cout<<"parent "<<endl;
+    //     for(auto i : parent){
+    //         cout<<i.first<<" -> "<<i.second<<endl;
+    //     }
+
+    //     ans.push_back(endNode);
+    //     while(parent[temp] != -1){
+    //         ans.push_back(parent[temp]);
+    //         if(parent[temp] == startNode){
+    //             break;
+    //         }
+    //         temp = parent[temp];
+
+    //     }
+
+    //     reverse(ans.begin() , ans.end());
+    //     return ans;
+    // }
     
 };
 

@@ -22,9 +22,9 @@ class Graph{
 
     void printEdge_list(){
         for(auto i: adj_list){
-            cout<<i.first<<"  ->";
+            cout<<i.first<<"  ";
             for(auto j : i.second){
-                cout<<j<<"->";
+                cout<<" -> "<<j;
             }
             cout<<endl;
         }

@@ -34,44 +34,78 @@ class Graph{
 
     
 
-    vector<int> topologicalSort(int vertex){
-        // indegree of every node
-        unordered_map<int , int>inDegree;
+    // vector<int> topologicalSort(int vertex){
+    //     // indegree of every node
+    //     unordered_map<int , int>inDegree;
+    //     for(auto i : adj_list){
+    //         for(auto j : i.second){
+    //             inDegree[j]++;
+    //         }   
+    //     }
+
+    //     // queue
+    //     queue<int>q;
+    //     for(int i=0 ; i<vertex ; i++){
+    //         if(inDegree[i] == 0){
+    //             q.push(i);
+    //         }
+    //     }
+
+    //     // do bfs
+    //     vector<int>ans;
+
+    //     while(!q.empty()){
+    //         int frontNode = q.front();
+    //         q.pop();
+
+    //         // store ans
+    //         ans.push_back(frontNode);
+
+    //         // check neighbour
+    //         for(auto neighbour : adj_list[frontNode]){
+    //             inDegree[neighbour]-- ;
+    //             if(inDegree[neighbour] == 0){
+    //                 q.push(neighbour);
+    //             }
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+
+    vector<int>topologicalSort(int vertex){
+        map<int , int>inDegree;
+
         for(auto i : adj_list){
             for(auto j : i.second){
                 inDegree[j]++;
-            }   
+            }
         }
 
-        // queue
         queue<int>q;
-        for(int i=0 ; i<vertex ; i++){
+        vector<int>ans;
+
+        for(int i=1 ; i<=vertex ; i++){
             if(inDegree[i] == 0){
                 q.push(i);
             }
         }
 
-        // do bfs
-        vector<int>ans;
-
         while(!q.empty()){
-            int frontNode = q.front();
+            int front = q.front();
             q.pop();
+            ans.push_back(front);
 
-            // store ans
-            ans.push_back(frontNode);
-
-            // check neighbour
-            for(auto neighbour : adj_list[frontNode]){
-                inDegree[neighbour]-- ;
-                if(inDegree[neighbour] == 0){
-                    q.push(neighbour);
+            for(auto neigh : adj_list[front]){
+                inDegree[neigh]--;
+                if(inDegree[neigh] == 0){
+                    q.push(neigh);
                 }
             }
         }
+
         return ans;
     }
-
    
 };
 

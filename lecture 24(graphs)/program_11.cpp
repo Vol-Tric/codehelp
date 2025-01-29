@@ -22,43 +22,77 @@ class Graph{
     }
 
     
-    vector<int> dijkstra(int vertex , int source ){
-        vector<int>dist(vertex);
+    // vector<int> dijkstra(int vertex , int source ){
+    //     vector<int>dist(vertex);
+    //     set<pair<int , int>>st;
+
+    //     // setting dist to 10000 , here 10000 act as INT_MAX
+    //     for(int i=0 ; i< vertex ; i++){
+    //         dist[i] = INT_MAX;
+    //     }
+
+    //     dist[source] = 0;
+    //     st.insert(make_pair(dist[source] , source));
+
+    //     while(!st.empty()){
+    //         auto top = *st.begin();
+            
+            
+
+    //         int nodeDist = top.first;
+    //         int node = top.second;
+    //         st.erase(st.begin());
+
+    //         for(auto neighbour : adj_list[node]){
+    //             if(dist[neighbour.first] > neighbour.second + nodeDist){
+                
+    //                 auto record = st.find(make_pair(dist[neighbour.first] , neighbour.first));
+    //                 // if record is found
+    //                 if(record != st.end()){
+    //                     st.erase(record);
+    //                 }
+    //                 // update dist
+    //                 dist[neighbour.first] = neighbour.second + nodeDist;
+
+    //                 st.insert(make_pair(dist[neighbour.first] , neighbour.first));
+
+    //             }
+    //         }
+    //     }
+    //     return dist;
+    // }
+
+
+    vector<int>dijkstra(int vertex , int source){
+        vector<int>dist(vertex , 1000);
         set<pair<int , int>>st;
 
-        // setting dist to 10000 , here 10000 act as INT_MAX
-        for(int i=0 ; i< vertex ; i++){
-            dist[i] = INT_MAX;
-        }
-
         dist[source] = 0;
-        st.insert(make_pair(dist[source] , source));
+
+        st.insert({dist[source] , source});
 
         while(!st.empty()){
             auto top = *st.begin();
-            
-            
 
-            int nodeDist = top.first;
-            int node = top.second;
-            st.erase(st.begin());
+            int topDist = top.first;
+            int topNode = top.second;
 
-            for(auto neighbour : adj_list[node]){
-                if(dist[neighbour.first] > neighbour.second + nodeDist){
-                
-                    auto record = st.find(make_pair(dist[neighbour.first] , neighbour.first));
-                    // if record is found
-                    if(record != st.end()){
-                        st.erase(record);
+            st.erase({topDist , topNode});
+
+            for(auto neigh : adj_list[topNode]){
+                if((topDist + neigh.second) < dist[neigh.first]){ //update
+                    // check if a node already exists
+                    if(st.count({dist[neigh.first] , neigh.first})){
+                        st.erase({dist[neigh.first] , neigh.first});
                     }
-                    // update dist
-                    dist[neighbour.first] = neighbour.second + nodeDist;
 
-                    st.insert(make_pair(dist[neighbour.first] , neighbour.first));
+                    dist[neigh.first] = topDist + neigh.second;
 
+                    st.insert({dist[neigh.first] , neigh.first});
                 }
             }
         }
+
         return dist;
     }
 };

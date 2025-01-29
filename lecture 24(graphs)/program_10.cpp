@@ -24,56 +24,95 @@ class Graph{
         }
     }
 
-    void topoSort(unordered_map<int , bool>&visited , stack<int>&s , int node){
+    // void topoSort(unordered_map<int , bool>&visited , stack<int>&s , int node){
+    //     visited[node] = true;
+        
+    //     for(auto neighbour : adj_list[node]){
+    //         if(!visited[neighbour.first]){
+    //             topoSort(visited , s , neighbour.first);
+    //         }
+    //     }
+    //     s.push(node);
+    // }
+
+    // stack<int> topologicalSort(int vertex){
+    //     unordered_map<int , bool>visited;
+    //     stack<int>s;
+
+    //     for(int i=0;i<vertex;i++){
+    //         if(!visited[i]){
+    //             topoSort(visited , s , i);
+    //         }
+    //     }
+    //     return s;
+    // }
+
+    // int shortestPath(int vertex , int src , int goal){
+    //     stack<int> stk = topologicalSort(vertex);
+
+    //     vector<int> dist(vertex);
+    //     for(int i=0 ; i<vertex ; i++){
+    //         // 100 is max value here acting as INT_MAX
+    //         dist[i] = 100;
+    //     }
+        
+    //     // dist[src] = 0;
+    //     dist[src] = 0;
+
+    //     while(!stk.empty()){
+    //         int topNode = stk.top();
+    //         stk.pop();
+
+    //         for(auto temp : adj_list[topNode]){
+    //             if((dist[topNode] + temp.second) < dist[temp.first]){
+    //                 dist[temp.first] = dist[topNode] + temp.second;
+    //             }
+    //         }
+    //     }
+
+    //     for(auto i : dist){
+    //         cout<<i<<" ";
+    //     }
+    //     cout<<endl;
+
+    //     return dist[goal];
+    // }
+
+    void topo(int node , map<int , bool>&visited , vector<int>&ans){
         visited[node] = true;
-        
-        for(auto neighbour : adj_list[node]){
-            if(!visited[neighbour.first]){
-                topoSort(visited , s , neighbour.first);
+        ans.push_back(node);
+
+        for(auto neigh : adj_list[node]){
+            if(!visited[neigh.first]){
+                topo(neigh.first , visited , ans);
             }
         }
-        s.push(node);
     }
 
-    stack<int> topologicalSort(int vertex){
-        unordered_map<int , bool>visited;
-        stack<int>s;
-
-        for(int i=0;i<vertex;i++){
-            if(!visited[i]){
-                topoSort(visited , s , i);
-            }
-        }
-        return s;
-    }
-
-    int shortestPath(int vertex , int src , int goal){
-        stack<int> stk = topologicalSort(vertex);
-
-        vector<int> dist(vertex);
+    vector<int>topoLogicalSort(int vertex){
+        map<int , bool>visited;
+        vector<int>ans;
         for(int i=0 ; i<vertex ; i++){
-            // 100 is max value here acting as INT_MAX
-            dist[i] = 100;
+            if(!visited[i]){
+                topo(i , visited , ans);
+            }
         }
-        
-        // dist[src] = 0;
-        dist[src] = 0;
+        return ans;
+    }
 
-        while(!stk.empty()){
-            int topNode = stk.top();
-            stk.pop();
+    int shortestPath(int vertex , int start , int goal){
+        vector<int>topo = topoLogicalSort(vertex);
 
-            for(auto temp : adj_list[topNode]){
-                if((dist[topNode] + temp.second) < dist[temp.first]){
-                    dist[temp.first] = dist[topNode] + temp.second;
+        vector<int>dist(vertex + 1, 100); // INT_MAX will not work as nothing can be added to INT_MAX
+
+        dist[start] = 0;
+        for(auto i : topo){
+            for(auto neigh : adj_list[i]){
+                if((dist[i] + neigh.second) < dist[neigh.first]){
+                    dist[neigh.first] = dist[i] + neigh.second;
                 }
             }
         }
-
-        for(auto i : dist){
-            cout<<i<<" ";
-        }
-        cout<<endl;
 
         return dist[goal];
     }

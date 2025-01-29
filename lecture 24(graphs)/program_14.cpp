@@ -39,11 +39,13 @@ class Graph{
 
                 low[node] = min(low[node] , low[neighbour]);
 
-                if(low[neighbour] > low[node]){
-                    vector<int>temp;
-                    temp.push_back(node);
-                    temp.push_back(neighbour);
-                    ans.push_back(temp);
+                if(low[neighbour] > disc[node]){
+                    // vector<int>temp;
+                    // temp.push_back(node);
+                    // temp.push_back(neighbour);
+                    // ans.push_back(temp);
+
+                    ans.push_back({node , neighbour});
                 }
             }
 
